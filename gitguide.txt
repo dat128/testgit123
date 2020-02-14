@@ -1,0 +1,64 @@
+- Cách sử dụng git:
++ branch là local branch, origin/Branch là remote branch
++ clone 1 nhánh bất kì về: 
+git clone -b develop https://github.com/dat128/testgit123.git
+(develop là tên branch có sẵn trên repository)
+
++ sau khi đã commit ở local, bây giờ muốn reset commit đó (không muốn lấy code của commit đó nữa, trở về trạng thái trước khi commit
+git reset --soft HEAD~1 (git reset --soft HEAD^, git reset --soft sha_commit) (trở về trạng thái đã add vào nhưng chưa commit message) (git log sạch sẽ, đã xóa đi commit kia trong gitlog)
+git reset --hard HEAD~1 (gần giống với lệnh trên, nhưng tất cả code đã thay đổi sẽ bị mất hết)
+
++ quay trở về commit trước bằng cách revert (điều này sẽ tạo ra một commit mới, có thay đổi trên git log và gitk)
+git revert HEAD (hoặc có thể thêm ~1 nếu lùi thêm 1 commit)
+git revert sha_commit
++ git reset HEAD~1 lệnh này cũng không bị mất code.
+
++ sau khi đã add vào và có màu xanh, muốn chuyển trạng thái lại màu đỏ thì dùng:
+git reset HEAD
+
++ get code mới trên develop về branch mình đang code
+ đang trên branch a:
+ checkout sang branch develop
+ git pull origin develop (kéo code từ develop về)
+ checkout lại branch a
+ git merge develop (merge code từ develop vào a)
+ có conflict thì fix rồi commit
+ fix xong thì push len repository
+ git push origin a
+ nếu cần merge code trên develop rồi đẩy lên develop
+ checkout sang develop
+ git pull origin develop
+ git merge a
+ git push origin develop
++ cách dùng rebase
+trên nhánh develop pull code mới nhất về
+checkout sang nhánh a
+git rebase develop
+nếu có conflict thì sửa như bình thường
+sau đó add vào như bình thường
+rồi git rebase --continue
+như thế này thì trên nhánh a đã có code của develop
+để trên nhánh develop có code của nhánh a thì checkout sang nhánh develop
+rồi git merge a (sẽ ko có conflict)
++ khi rebase nhiều khi sẽ phải dùng push force
+cách force push
+git push -f origin branch_name (không an toàn)
+git push --force-with-lease origin branch_name (an toàn hơn)
+
+
++ Nếu code xong đã commit và push lên repository, bây giờ ko muốn lấy cái code đó và quay lại trạng thái trước khi thực hiện commit đó
+ cách 1: dùng reset
+ git reset --soft HEAD~1
+ git reset HEAD
+ git checkout -- .
+ lúc này push sẽ lại bị lỗi force push
+ lại dùng cách force push như trên
+ 
+ cách 2: dùng revert
+ (chọn ngay commit hash đó, không phải lùi 1 cái như reset)
+ git revert HEAD (revert ngay commit hiện tại)
+ git revert commit_sha
+ git push origin branch_name
+ cái này ko cần force push
+ 
+ 
