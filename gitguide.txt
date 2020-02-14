@@ -1,6 +1,6 @@
 - Cách sử dụng git:
 + branch là local branch, origin/Branch là remote branch
-+ clone 1 nhánh bất kì về: 
++ clone 1 nhánh bất kì về:
 git clone -b develop https://github.com/dat128/testgit123.git
 (develop là tên branch có sẵn trên repository)
 
@@ -53,12 +53,15 @@ git push --force-with-lease origin branch_name (an toàn hơn)
  git checkout -- .
  lúc này push sẽ lại bị lỗi force push
  lại dùng cách force push như trên
- 
+
  cách 2: dùng revert
  (chọn ngay commit hash đó, không phải lùi 1 cái như reset)
  git revert HEAD (revert ngay commit hiện tại)
  git revert commit_sha
  git push origin branch_name
  cái này ko cần force push
- 
- 
+
+
+ để xem sự khác nhau giữa 2 branch thì dùng
+ git diff branch_name_other
+ git diff branch_name_1 branch_name_2 (bằng lệnh git diff branch_name 1)
