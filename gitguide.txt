@@ -65,3 +65,10 @@ git push --force-with-lease origin branch_name (an toàn hơn)
  để xem sự khác nhau giữa 2 branch thì dùng
  git diff branch_name_other
  git diff branch_name_1 branch_name_2 (bằng lệnh git diff branch_name 1)
+ 
+ 
+ đang ở trên branch develop, ko có branch a trong repo ở local, giờ cần lấy code và tạo branch a ở local nhưng ko muốn lấy code ở develop (parent cha), dùng lệnh sau:
+ fetch branch remote về trước
+ git fetch origin a
+checkout sang branch local 
+git checkout a
