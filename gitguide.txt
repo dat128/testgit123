@@ -72,3 +72,10 @@ git push --force-with-lease origin branch_name (an toàn hơn)
  git fetch origin a
 checkout sang branch local 
 git checkout a
+
+- có 3 cách để mesge từ branch b vào branch develop
++ normal merge
++ rebase sau đó merge
++ squash sau đó merge
+tham khảo ở link này: 
+https://stackoverflow.com/questions/2427238/in-git-what-is-the-difference-between-merge-squash-and-rebase
