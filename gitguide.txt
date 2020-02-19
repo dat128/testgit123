@@ -79,3 +79,13 @@ git checkout a
 + squash sau đó merge
 tham khảo ở link này: 
 https://stackoverflow.com/questions/2427238/in-git-what-is-the-difference-between-merge-squash-and-rebase
+
+
+- git stash
++ Khi đang code dở trên branch a, nhưng ko muốn commit và checkout sang branch develop để làm việc khác.
+git stash save "noi dung message"
+để lấy ra những stash: git stash list
+để lấy ra thay đổi: git stash apply tên_stash
+sau khi commit code thì xóa stash đi
+git stash pop tên_stash
+git stash clear (xóa toàn bộ stash)
