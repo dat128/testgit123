@@ -17,5 +17,3 @@ update develop 2
 udpate b 1
 update b 2
 update b 3
-update b 4
-update b 2
