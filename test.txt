@@ -22,10 +22,7 @@ update b 5
 update b 6
 update b 7
 update b 8
-<<<<<<< Updated upstream
 udpate b 9
-=======
 udpate b 9
 update b 10
 update develop stash 1
->>>>>>> Stashed changes

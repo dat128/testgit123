@@ -1,0 +1,89 @@
+-        Kiến thức cơ bản về HTML, CSS, Bootstrap, Javascript
+
+-        JavaScript/ES6: closure là gì? hoist là gì? Phạm vi của biến trong JavaScript, let, const, var khác nhau như nào, phạm vi (scope) của biến dùng let, const, var thì như nào? Function và => và => {} khác nhau như nào? Async/await là gì? khi nào cần dùng async/await, vì sao? polyfill là gì? tại sao lại cần polyfill? == và === khác gì nhau; function, settimout, callback function; Phân biệt variables created using let, var or const? Phân biệt các biến: null, undefined or undeclared? Phân biệt Array.forEach() loop và Array.map()
+
+-        CSS: CSS frameworks (Foundation, Bootstrap) and responsive design; CSS selector và CSS Using. Các khái niệm về:- Media queries / mobile specific layouts/CSS - Grid system; - What does * { box-sizing: border-box; } do? What are its advantages?; - What is the CSS display property and can you give a few examples of its use?;- Have you played around with the new CSS Flexbox or Grid specs?
+
+-        NodeJS: Cấu trúc event loop; Node Package Manager; Process Object; Cluster Server Object; hàm Process.nextTick ();Colors Module trong Node.JS
+
+-        Angular: Phân biệt omponent and Directive; constructor and ngOnInit;  khái niệm: lifecycle hooks available; RxJS? subscribing? Observable;  HttpClient trong Angular; Kiến thức về: Ajax Framework, JQuery Ajax; HTTP methods (get, post, put, options..; Data transfer: json, xml, blob; Promises,Chaining Promises, Callbacks, Async/Await, RxJS Observables; Security/authentication/token…
+
+-        React: Hàm setState trong Reactjs; Chức năng của hàm render(); Functional component với component bình thường khác nhau như nào? Lifecycle methods trong React? Vì sao React lại nhanh? vì sao VirtualDOM lại nhanh hơn DOM manipulation bình thường? React Fragment dùng để làm gì? Trong React tại sao trong vòng lặp lại cần “key” prop? HOC là gì? ví dụ về HOC mà bạn biết
+
+-        Lập trình hướng đối tượng (4 tính chất, ví dụ minh họa);
+
+-        Các thuật toán sắp xếp, tìm kiếm & các giải thuật cơ bản.
+
+-        Database: Các lệnh Join (phân biệt: InnerJoin/ OutnerJoin; Left join/ right join); Group by; Having; subquery; Stored procedure vs udf; trigger; …
+
+-        Kinh nghiệm làm việc (tại các bài tập lớn, các dự án cá nhân, quá trình thực tập,…): nêu rõ vị trí, vai trò trong dự án, các phần nội dung công việc đảm nhận.
+
+-        Định hướng công việc theo đuổi
+
+-        Chuẩn bị các câu hỏi / thắc mắc về vị trí công việc, môi trường làm việc… trong tương lai và đề nghị anh/chị phỏng vấn giải đáp.
+
+-        Trang phục: gọn gàng lịch sự. Giao tiếp bình tĩnh tự tin.
+
+
+- closure là một inner function (hàm khai báo bên trong hàm khác), nó có thể truy cập tới biến của outer function (hàm cha chứa nó)
+- closure có 3 scope chain:
++ access đến biến khai báo bên trong nó,
++ access đến biến của outer function,
++ access đến biến global.
+- pass by value: thay đổi biến ở trong hàm thì ngoài hàm sẽ không bị ảnh hưởng. chỉ copy giá trị của biến
+- pass by reference: thay đổi biến ở trong hàm thì ngoài hàm cũng bị ảnh hưởng. lấy đúng địa chỉ của biến
+- tham chiếu và tham trị trong js:
+- khi so sánh các kiểu dữ liệu nguyên thủy trong js thì nó sẽ so sánh giá trị (kiểu number, string, boolean)
+- khi so sánh các kiểu object với nhau thì chúng sẽ so sánh địa chỉ trong bộ nhơ của 2 object
+- không cần quan tâm nó pass theo cái gì, mà quan tâm cách phéo gán nó hoạt động ngOnInit
+- các kiểu primitive thì phép gán của nó là pass by value
+- với kiểu gán của object thì nó là pass by reference
+vd: x = 1, y = 1, (x===y) => true, x = 1, (x===y) => true
+x = {a: 1}, y ={a:1} (x === y) => true, x.a = 1, (x === y) => true
+- so sánh ==: chỉ so sánh giá trị: x = 1, y = true, (x == y) => true
+- so sánh ===: so sánh cả kiểu dữ liệu và giá trị: x = 1, y = true, (x === y) => false
+=> nên so sánh ===
+
+- hoist:
++ hositing trong java script nghĩa là khi compile thì tất cả khai báo (declaration) sẽ được đẩy lên trên đầu của function hiện tại
+=> 1 biến có thể được khái báo sau khi nó đã được sử dụng
+nói cách khác một biến có thể được sử dụng trước khi nó được khai báo.
+
+
+- Nếu được khai báo là let và const thì không phải là hoisted
+- chỉ có hosit cho declaration (khai báo) var x, không có hoist với khởi tạo (initialization) var x = 7
+
+- sử dụng từ khóa "use strict" để tránh việc khai báo lung tung như thế này.
+- let: phạm vi sử dụng trong block scope (1 khối chứa {})
+- var: có tác dụng trong function mà nó được định nghĩa, (ngoài khối block)
+- const: có phạm vi scope giống let, nhưng không thể gán lại giá trị cho nó.
+
+- trong js có 3 scope:
+- global scope: chỉ mỗi var
+- function scope: cả 3
+- block sscope: trừ var
+- vẫn cập nhật được thuộc tính cho object khi dùng const
+- global scope (tức là không nằm trong 1 function nào cả)
+
+
+- arrow function không được hosit
+- regualr function có hoist
+
+
+
+- undefined chưa được gán giá trị
+- null là một giá trị được gán (có nghĩa t có thể gán x = null)
+- undeclared là chưa được khai báo.
+
+- dùng async await để tránh tình trạng promise hell (nhìn rối code) và khi cần code chạy theo trình tự nhất định
+- dùng babel để chuyển từ code es5 thành ES6
+
+
+- constructor được gọi trước ngOnInit
+- ngOninit là 1 lifecycle hook trong Angular, được gọi sau constructor, lần đầu tiên load component
+- dùng constructor để setup depedency injection
+- depedency injection là:
++ khi 1 class A muốn dùng 1 số chức năng trong class B thì trong class A phải khởi tạo 1 object của class B
+- Constructor là hàm mặc định của type script
+- angualr gọi việc khởi tạo này là constructtor injection pattern
+-
